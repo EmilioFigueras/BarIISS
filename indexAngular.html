@@ -1,0 +1,85 @@
+<html class="no-js">
+    <head>
+              <meta charset="utf-8">
+        <title>Restaurant</title>
+
+        <link rel="stylesheet" href="styles/normalize.css">
+        <link rel="stylesheet" href="styles/main.css" media="screen" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href=" bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="styles/style-portfolio.css">
+        <link rel="stylesheet" href="styles/picto-foundry-food.css" />
+        <link rel="stylesheet" href="styles/jquery-ui.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles/font-awesome.min.css" rel="stylesheet">
+        <link rel="icon" href="images/favicon-1.ico" type="image/x-icon">
+    </head>
+    <body>
+        <!-- This div element corresponds to the  CalculatorController we created via the JavaScript-->
+
+
+       <div class="container" ng-controller="ContactoCtrl">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="inner contact">
+                            <!-- Form Area -->
+                            <div class="contact-form">
+                                <!-- Form -->
+                                <form novalidate ng-submit="enviarconsulta()">
+                                    <!-- Left Inputs -->
+                                    <div class="col-md-6 ">
+                                        
+                                            <input ng-model="nombre" class="form" id="nombre" name="nombre" type="text" placeholder="Name">
+                                            <input ng-model="email" class="form" id="email" name="email" type="email" placeholder="Email">
+                                            <input ng-model="subject" class="form" id="subject" name="subject" type="text" placeholder="Subject">
+                                        <!--
+                                        <!-- Name 
+                                        <input type="text" name="name" id="name" required="required" class="form" placeholder="Name" />
+                                        <!-- Email 
+                                        <input type="email" name="email" id="email" required="required" class="form" placeholder="Email" />
+                                        <!-- Subject 
+                                        <input type="text" name="subject" id="subject" required="required" class="form" placeholder="Subject" />
+                                    -->
+                                    </div><!-- End Left Inputs -->
+                                    <!-- Right Inputs -->
+                                    <div class="col-md-6">
+                                        <!-- Message 
+                                        <textarea name="message" id="message" class="form textarea"  placeholder="Message"></textarea> -->
+                                            <textarea ng-model="consulta" class="form textareaa" id="consulta" name="consulta" placeholder="Message"></textarea>
+                                    </div><!-- End Right Inputs -->
+                                    <!-- Bottom Submit -->
+                                    <div class="relative fullwidth col-xs-12">
+                                        <!-- Send Button 
+                                        <button type="submit" id="submit" name="submit" class="form-btn">Send Message</button> -->
+                                        <p><button type="submit" class="form-btn">Enviar</button></p>
+                                    </div><!-- End Bottom Submit -->
+                                    <!-- Clear -->
+                                    <div class="clear"></div>
+                                </form>
+                            </div><!-- End Contact Form Area -->
+                        </div><!-- End Inner -->
+                    </div>
+                </div>
+            </div>
+    
+    	<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>     
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>  
+        <script type="text/javascript" src="scripts/jquery.mixitup.min.js" ></script>
+        <script type="text/javascript" src="scripts/controllers/main.js" ></script>
+        <script type="text/javascript" src="scripts/app.js" ></script>
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-sortable/sortable.js"></script>
+        <script src="scripts/controllers/contacto.js"></script>
+    </body>
+</html>
