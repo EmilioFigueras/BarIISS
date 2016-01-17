@@ -1,13 +1,6 @@
 /*
-Theme Name: Restaurant
-Theme URI: http://themewagon.com/demo/Restaurant/
-Author: ThemeWagon
-Author URI: http://themewagon.com/
-Description: 
-Version: 1.0
-License: GNU General Public License v3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: restaurant
+Plantilla de Bootstrap adaptada y modificada para
+nuestra web del Restaurante La Palma
 */
 /*========================
 GLOBAL
@@ -58,6 +51,22 @@ p.desc-text{
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+  font-family: 'CFPB Minicons';
+  src: url('../fonts/cf-icons.eot');
+  src: url('../fonts/cf-icons.eot?#iefix') format('embedded-opentype'), url('../fonts/cf-icons.woff') format('woff'), url('../fonts/cf-icons.ttf') format('truetype'), url('../fonts/cf-icons.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.cf-icon,
+.cf-icon {
+  font-family: 'CFPB Minicons';
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
 
 [class^="icon-"], [class*=" icon-"] {
     font-family: 'icomoon';
@@ -73,21 +82,29 @@ p.desc-text{
     -moz-osx-font-smoothing: grayscale;
 }
 
+a.sb.facebook,
+.sb a.facebook {
+	background-image: url(images/facebook.png);
+}
+
+
+.cf-icon-facebook:before {
+  content: "\e204";
+}
+
+.cf-icon-facebook-square:before {
+  content: "\e205";
+}
+
+
 .icon-mail:before {
     content: "\e600";
 }
-
-.icon-github:before {
-    content: "\e601";
-}  
 
 .icon-twitter:before {
     content: "\e602";
 }
 
-.icon-linkedin:before {
-    content: "\e603";
-}
 
 .carousel-slide{
     float: right !important;
@@ -106,7 +123,6 @@ li.item{
     height: 20px;
     margin: 30px auto;
     opacity: 0.8;
-    background: url(data:../image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgODUuMyI+PHBhdGggZD0iTTI5OC43IDEyLjZDMjk3LjUgNS41IDI4OC43IDEgMjgzLjEgMWwtODcuOSAwLjNMMzAuNiAxLjVjLTE0LjQgMC0yNS4xIDgtMjUuNSA4LjNsLTUuNCA0bDMuNyA1LjkgYzI1LjkgNDAuOSA3MSA1Ni4zIDEwNC4zIDYyLjFjMzkuMiA2LjcgNzUgMi42IDg4LjMtMS42YzQuMy0xLjQgOC40LTMuMyA5LjMtOGwwLjEtMS4xbDAtMC42YzAtMi4zLTAuNy00LjctMS44LTguNSBjLTAuMi0wLjgtMC41LTEuOC0wLjktM2MtMS4zLTQuMi0zLjQtMTEuMy00LjUtMTYuOGMzLjMtMS4xIDUuOC0xLjggNi42LTEuOWMxLjUgMCA4IDEuNyAxMy40IDMuNmwwLjUgMC4ybDAuNSAwLjEgYzIgMC4zIDEyLjEgMS43IDE2LjQgMS43YzQuMSAwIDEzLjEtMS40IDE1LjctMS45bDAuNC0wLjFsMC40LTAuMWM1LjgtMS45IDEwLjktMy4zIDEyLjYtMy42YzAuOSAwLjMgMi45IDEuMiA1IDIuNCBjMC40IDAuMyAwLjkgMC42IDEuNCAwLjhsMSAwLjZsMS4yIDBsNi4yLTAuNWMwLjIgMCAwLjQgMCAwLjYtMC4xbDguOC0xLjRjNC4yLTEuNyA3LjktNC4yIDkuOC03LjRsMC40LTAuN2wwLjItMC43IGMwLjUtMi4xIDAuOC01LjYgMC44LTkuMUMzMDAgMTcuOCAyOTkuMiAxNC40IDI5OC43IDEyLjZ6Ii8+PC9zdmc+) no-repeat center;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
@@ -221,7 +237,6 @@ INTRO CONTAINER
     font-family: 'Playball', cursive;
     font-size: 100px;
     font-weight: 400;
-    text-align: 
  }
 .second-title {
     font-weight: lighter; 
@@ -266,40 +281,32 @@ INTRO CONTAINER
 }
 
 .beer.background_content{
-    background: url('../images/beer.jpg') no-repeat center center; 
+    background: url('../images/vistas3.jpg') no-repeat center center; 
     background-size: cover;
     background-position: 70% 50%;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.bread.background_content{
-    background: url('../images/bread.jpg') no-repeat center center; 
-    background-size: cover;
-    background-position: 70% 50%;
-}
  .featured.background_content{
-    background: url('../images/featured.jpg') no-repeat center center; 
+    background: url('../images/paisaje.jpg') no-repeat center center; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
  .pricing.background_content{
-    background: url('../images/la-palma2.jpg') no-repeat center center; 
+    background: url('../images/terraza.jpg') no-repeat center center; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 .reservation.background_content{
-    background: url('../images/reservation-seat.jpg') no-repeat center center; 
+    background: url('../images/vistas2.jpg') no-repeat center center; 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
-.bread.background_content{
-    background: url('../images/breakfast.jpg') no-repeat center center; 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+
 /*========================
 DESCRIPTION BODY CONTENT
 =========================*/
@@ -317,6 +324,7 @@ DESCRIPTION BODY CONTENT
     margin: 45px auto;
     max-width: 300px;
 }
+
 h1 {
     font-size: 28px;
     font-weight: 900;
@@ -380,7 +388,6 @@ FIRST FOOTER CONTENT
 .social_icons li {
     list-style: none;
     display: inline-block;
-    padding: none;
 }
 
 .social_icons li:nth-child(1),
@@ -619,9 +626,7 @@ MEDIA QUERIES TABLET
         padding-top: 10px;
     }
 
-    nav li{
-        padding-right: -15px;
-    }
+
     .navbar-brand{
         font-family: 'Pacifico', cursive;
         font-size: 34px !important;

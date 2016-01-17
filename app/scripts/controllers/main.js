@@ -1,5 +1,5 @@
 
-
+	//Scroll automatico
 	$(document).ready(function () {
 		$(document).on("scroll", onScroll);
  
@@ -37,16 +37,16 @@
 			}
 		});
 	
-       
+       //Portoflio (Carta interactiva y filtrada)
         $(function(){
             $('#portfolio').mixitup({
                 targetSelector: '.item',
                 transitionSpeed: 350
             });
         });
-
+        //Calendario cuando pulsas la casilla de fecha en el formulario
           $(function() {
-            $( "#datepicker" ).datepicker();
+            $( "#datepicker" ).datepicker({dateFormat: 'dd/mm/yy'});
         });
     
     };

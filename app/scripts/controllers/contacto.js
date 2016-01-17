@@ -15,7 +15,8 @@ angular.module('barApp').controller('ContactoCtrl', function ContactoCtrl($scope
       				{ nombre: $scope.nombre,
         			  email: $scope.email,
         			  asunto: $scope.subject,
-        			  consulta: $scope.consulta
+        			  consulta: $scope.consulta,
+                resuelta: 'NO'
       				})
     			alert("Consulta recibida, gracias.");
     		}
@@ -27,19 +28,20 @@ angular.module('barApp').controller('ContactoCtrl', function ContactoCtrl($scope
       				  fecha: $scope.datepicker,
       				  telefono: $scope.phone,
       				  personas: $scope.guest,
-        			  email: $scope.email
+        			  email: $scope.email,
+                confirmada: 'NO'
       				})
     			alert("Reserva solicitada, nos pondremos en contacto con usted para confirmarla.");
     		}
 
   		});
 
-	// load the app
+	
         angular.element(document).ready(function() {
             angular.bootstrap(document, ['barApp']);
         });
 
-
+//Funcion que genera un numero unico y aleatorio
 function generateUUID() {
     var d = new Date().getTime();
     var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
