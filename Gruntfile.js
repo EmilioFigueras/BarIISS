@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}*.js', '<%= yeoman.app %>/scripts/controllers/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -46,7 +46,12 @@ module.exports = function (grunt) {
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        tasks: ['newer:copy:styles', 'autoprefixer', 'clean:server'],
+        options: {
+            livereload: true,
+            spawn: false,
+            nospaces: true
+        }
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -221,7 +226,7 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
+              js: ['uglifyjs'],
               css: ['cssmin']
             },
             post: {}
@@ -238,7 +243,6 @@ module.exports = function (grunt) {
         assetsDirs: [
           '<%= yeoman.dist %>',
           '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
         ]
       }
     },
@@ -247,27 +251,42 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+    target: {
+    files: [{
+      expand: true,
+      cwd: '<%= yeoman.app %>/styles',
+      src:['*.css', '!*.min.css'],
+      dest: '<%= yeoman.app %>/styles/min',
+      ext: '.min.css'
+    }]
+    }
+  },
+    uglify: {
+    options: {
+      mangle: false
+    },
+    dist: {
+    files: {
+      '<%= yeoman.app %>/scripts/min/unificados.min.js': [
+      '<%= yeoman.app %>/scripts/unificados.js'
+      ]
+    }
+    }
+    },
+    concat: {
+      options: {
+      separator: ';',
+    },
+    dist: {
+      src: ['<%= yeoman.app %>/scripts/app.js', '<%= yeoman.app %>/scripts/jquery.mixitup.min.js' ,'<%= yeoman.app %>/scripts/controllers/*.js'],
+      dest: '<%= yeoman.app %>/scripts/unificados.js'
+    },
+    distcss: {
+      src: ['<%= yeoman.app %>/styles/css/*.css'],
+      dest: '<%= yeoman.app %>/styles/unificados.css'
+    }
+    },
 
     imagemin: {
       dist: {
@@ -343,7 +362,7 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'fonts/{,*/}*.*'
           ]
         }, {
           expand: true,
@@ -389,6 +408,10 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-concat');
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -424,11 +447,9 @@ module.exports = function (grunt) {
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
-    'autoprefixer',
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
     'cssmin',
     'uglify',
     'filerev',
